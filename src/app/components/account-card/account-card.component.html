@@ -1,0 +1,13 @@
+<div class="account-card d-flex align-items-center" *ngIf="account != undefined">
+    <div class="col-auto m-1 p-0">
+        <!-- <div style="background:url( {{account.picture}} ) center center" class="account-profile-img" ></div> -->
+        <a mat-icon-button [color]="icon.buttonColor" *ngIf="icon != undefined">
+            <app-icon [name]="icon.iconName" [color]="icon.iconColor" size="22"></app-icon>
+        </a>
+    </div>
+    
+    <div class="col d-flex flex-column">
+        <label class="mat-body-1 text-start">{{ account.name }}</label>
+        <label class="mat-caption color-{{ color }} text-start"><i>{{ account.type | AccountType }}</i> </label>
+    </div>
+</div>

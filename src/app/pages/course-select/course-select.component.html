@@ -1,0 +1,41 @@
+<div *ngFor="let group of sectionList">
+    <div class="d-flex align-items-center">
+        <div class="col-auto">
+            <a mat-icon-button
+                [color]="group.icon.buttonColor">
+                <app-icon [name]="group.icon.iconName"
+                    [color]="group.icon.iconColor" size="22"></app-icon>
+            </a>
+        </div>
+
+        <div class="col px-2">
+            <label class="mat-title">{{ CourseSection[ group.section ] }}</label>
+        </div>
+    </div>
+
+    <hr>
+
+    <div *ngFor="let course of group.courses"
+        class="d-flex my-3 align-items-center">
+
+        <div class="col">
+            <label class="mat-subheading-1">{{ CourseLevel[ course.level ] }}</label>
+        </div>
+
+        <div class="col-auto"
+            *ngIf="course.actionIcon != undefined">
+            <a mat-fab
+                [color]="course.actionIcon.buttonColor"
+                (click)="viewCourse(course)"
+                class="mat-elevation-z0"
+                [disabled]="course.phase == 0">
+                
+                <app-icon [name]="course.actionIcon.iconName"
+                    [color]="course.actionIcon.iconColor"></app-icon>
+            </a>
+        </div>
+    </div>
+
+
+
+</div>

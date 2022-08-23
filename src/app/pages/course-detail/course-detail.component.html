@@ -1,0 +1,89 @@
+<div *ngIf="_data.courseDetail != undefined">
+
+    <div class="d-flex align-items-center mt-3">
+        <div class="col d-flex align-items-center">
+
+
+            <div class="col-auto">
+                <a mat-icon-button
+                    color="transparent">
+                    <app-icon [name]="CourseIconName[ CourseSection[ _data.courseDetail.section ]]"
+                        color="primary" size="22"></app-icon>
+                </a>
+            </div>
+    
+            <div class="col d-flex flex-column px-2">
+                <label class="mat-subheading-1">{{ CourseSection[ _data.courseDetail.section ] }}</label>
+                <label class="mat-caption">{{ CourseLevel[ _data.courseDetail.level ] }}</label>
+            </div>
+
+
+        </div>
+
+        <div class="col-auto" *ngIf="_data.courseDetail.phase != 3">
+            <a mat-raised-button
+                color="primary"
+                (click)="finishQuiz()"
+                class="px-5 py-1">
+                <label class="mat-button">Finish</label>
+            </a>
+        </div>
+    </div>
+
+
+    <hr>
+
+
+    <div *ngIf="navDots != undefined" class="my-2">
+        <app-dot-navigator [dots]="navDots"
+            [index]="index"
+            (indexChange)="updateIndex($event)"></app-dot-navigator>
+    </div>  
+
+    <div *ngIf="question != undefined">
+        <div>
+            <label class="mat-body-2">Question</label>
+        </div>
+        <div class="question-text-container">
+            <label class="mat-body-1">{{ question.text }}</label>
+        </div>
+    </div>
+
+
+    <div *ngIf="responses != undefined">
+        <div *ngFor="let response of responses" class="mb-5">
+            <div>
+                <label *ngIf="response.user.id == _data.getUserAccount().id"
+                    class="mat-body-2"><i>Your Response</i></label>
+
+                <label *ngIf="response.user.id != _data.getUserAccount().id"
+                class="mat-body-2"><i>{{ response.user.name }}</i></label>
+
+                <!-- <app-account-card *ngIf="response.user.id != _data.getUserAccount().id" 
+                [account]="response.user"></app-account-card> -->
+
+
+            </div>
+
+            
+
+            <div>
+                <div *ngIf="response.comment.text != undefined">
+                    <label class="mat-body-1 px-1">{{ response.comment.text }}</label>
+                </div>
+
+                <!-- <div *ngIf="response.formField != undefined && response.formField.control != undefined && _data.courseDetail.phase != 3"> -->
+                <div *ngIf="response.comment?.text == undefined">
+                    <form [formGroup]="response.formField.control.parent">
+                        <app-form-field [field]="response.formField" (emit)="inputEvent($event)"></app-form-field>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+</div>

@@ -1,0 +1,572 @@
+@use '@angular/material' as mat;
+@import "./theme.scss";
+
+
+
+$fontConfig: (
+  display-4   : mat.define-typography-level(56px, 1, 300, $theme-font-header, 0em),
+  display-3   : mat.define-typography-level(48px, 1, 400, $theme-font-header, 0em),
+  display-2   : mat.define-typography-level(42px, 1, 400, $theme-font-header, 0em),
+  display-1   : mat.define-typography-level(38px, 1, 400, $theme-font-header, 0em),
+  headline    : mat.define-typography-level(32px, 1, 500, $theme-font-header, 0em),
+  title       : mat.define-typography-level(32px, 1, 300, $theme-font-header, 0em),
+  subheading-2: mat.define-typography-level(26px, 1, 500, $theme-font-header, 0em),
+  subheading-1: mat.define-typography-level(26px, 1, 300, $theme-font-header, 0em),
+  body-2      : mat.define-typography-level(18px, 1, 600, $theme-font-body, 0em),
+  body-1      : mat.define-typography-level(18px, 1, 300, $theme-font-body, 0em),
+  button      : mat.define-typography-level(18px, 1, 500, $theme-font-utility, 0em),
+  caption     : mat.define-typography-level(12px, 1, 600, $theme-font-utility, 0em),
+  input       : mat.define-typography-level(inherit, 1.5, 400, $theme-font-body, 0em)
+);
+
+// define a real custom palette (using http://mcg.mbitson.com)
+$md-primary: (
+    50 : #e5ecf8,
+    100 : #bfcfee,
+    200 : #94b0e3,
+    300 : #6990d8,
+    400 : #4978cf,
+    500 : #2960c7,
+    600 : #2458c1,
+    700 : #1f4eba,
+    800 : #1944b3,
+    900 : #0f33a6,
+    A100 : #d5deff,
+    A200 : #a2b5ff,
+    A400 : #6f8cff,
+    A700 : #5678ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #ffffff,
+    )
+);
+
+$md-accent: (
+    50 : #e5f0e3,
+    100 : #bddab8,
+    200 : #92c289,
+    300 : #66aa5a,
+    400 : #459736,
+    500 : #248513,
+    600 : #207d11,
+    700 : #1b720e,
+    800 : #16680b,
+    900 : #0d5506,
+    A100 : #8fff88,
+    A200 : #5fff55,
+    A400 : #2fff22,
+    A700 : #17ff09,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #ffffff,
+        500 : #ffffff,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$md-warn: (
+    50 : #fcf4e3,
+    100 : #f7e3b9,
+    200 : #f2d18a,
+    300 : #ecbe5b,
+    400 : #e8b037,
+    500 : #e4a214,
+    600 : #e19a12,
+    700 : #dd900e,
+    800 : #d9860b,
+    900 : #d17506,
+    A100 : #fffcfa,
+    A200 : #ffe3c7,
+    A400 : #ffc994,
+    A700 : #ffbd7b,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+
+
+
+
+
+$my-app-primary: mat.define-palette($md-primary);
+$my-app-accent: mat.define-palette($md-accent);
+$my-app-warn: mat.define-palette($md-warn);
+
+$my-app-theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $my-app-primary,
+      accent: $my-app-accent,
+      warn: $my-app-warn,
+    ),
+    typography: $fontConfig,
+  )
+);
+
+@include mat.core($fontConfig);
+
+@include mat.all-component-themes($my-app-theme);
+
+/*
+
+// 
+@import "~@angular/material/theming";
+
+
+
+// Typography
+$fontConfig: (
+  display-4   : mat-typography-level(56px, 1, 300, $theme-font-header, 0em),
+  display-3   : mat-typography-level(48px, 1, 400, $theme-font-header, 0em),
+  display-2   : mat-typography-level(42px, 1, 400, $theme-font-header, 0em),
+  display-1   : mat-typography-level(38px, 1, 400, $theme-font-header, 0em),
+  headline    : mat-typography-level(32px, 1, 500, $theme-font-header, 0em),
+  title       : mat-typography-level(32px, 1, 300, $theme-font-header, 0em),
+  subheading-2: mat-typography-level(26px, 1, 500, $theme-font-header, 0em),
+  subheading-1: mat-typography-level(26px, 1, 300, $theme-font-header, 0em),
+  body-2      : mat-typography-level(18px, 1, 500, $theme-font-body, 0em),
+  body-1      : mat-typography-level(18px, 1, 300, $theme-font-body, 0em),
+  button      : mat-typography-level(18px, 1, 500, $theme-font-utility, 0em),
+  caption     : mat-typography-level(14px, 1, 600, $theme-font-utility, 0em),
+  input       : mat-typography-level(inherit, 1.125, 400, $theme-font-body, 0em)
+);
+
+// Be sure that you only ever include 'mat-core' mixin once!
+// it should not be included for each theme.
+@include mat-core(); 
+
+
+
+
+
+// mandatory stuff for theming
+$palette-primary: mat-palette($md-primary);
+$palette-accent : mat-palette($md-accent);
+$palette-warn   : mat-palette($md-warn);
+
+// include the custom theme components into a theme object
+$theme: mat-light-theme($palette-primary, $palette-accent, $palette-warn);
+
+// include the custom theme object into the angular material theme
+@include angular-material-theme($theme);
+
+// Override typography for all Angular Material, including mat-base-typography and all components.
+@include angular-material-typography($fontConfig);
+
+@include angular-material-foreground($light-theme-foreground-palette);
+
+
+// */
+
+
+/**************************************************
+  Material Adjustments
+*/
+
+//	Adjust Type Margins
+.mat-display-1,
+.mat-display-2,
+.mat-display-3,
+.mat-display-4,
+.mat-subheading-1,
+.mat-subheading-2,
+.mat-title,
+.mat-headline {
+  margin: 0 !important;
+}
+
+label {
+  margin-bottom: 0;
+}
+
+//  Padding Fix
+.mat-form-field-infix {
+  padding: 0em 0 0.5em 0 !important;
+}
+.mat-form-field-wrapper {
+  padding-bottom: 0em !important;
+}
+
+// Input Line Height Increase
+.mat-form-field {
+  line-height: 1.5 !important;
+}
+
+
+
+.mat-select-panel {
+  max-height: 444px !important;
+}
+
+//  Dialog Position Fix
+.cdk-global-overlay-wrapper {
+  align-items: start !important;
+  padding-top: 100px !important;
+}
+
+
+
+
+.mat-form-field {
+	width: 100%;
+}
+
+.mat-form-field-infix {
+  display: flex !important;
+}
+
+
+
+//	Alert Color Consistancy
+.alert {
+	padding   : .5em 0em !important;
+	text-align: center !important;
+
+	position     : relative;
+	margin       : 1rem 0;
+	// border       : 1px solid transparent;
+	border       : none !important;
+	border-radius: 0rem !important;
+}
+
+.alert.alert-primary {
+	color           : $theme-primary !important;
+	background-color: lighten( desaturate( $theme-primary, 30%), 70%) !important;
+	border-color    : lighten( $theme-primary, 30%) !important;
+}
+
+.alert.alert-accent {
+	color           : $theme-text-light;
+	background-color: $theme-accent !important;
+	border-color    : lighten( $theme-accent, 5%) !important;
+}
+
+.alert.alert-warn {
+	color           : $theme-warn !important;
+	background-color: lighten( $theme-warn, 40%) !important;
+	border-color    : lighten( $theme-warn, 20%) !important;
+}
+
+
+
+//	True Center Icons
+a {
+	text-decoration: none !important;
+	display        : grid !important;
+	place-content  : center;
+	justify-content: center;
+
+  padding: 0 !important;
+	
+	> * a > * {
+    width: 100%;
+    height: 100%;
+  }
+
+  .mat-button-wrapper{
+    display        : grid !important;
+    place-content  : center;
+    justify-content: center;
+    
+  }
+}
+
+a.mat-icon-button > * {
+	width        : 100%;
+	height       : 100%;
+	display      : grid;
+	place-content: center;
+}
+
+a img {
+  margin-top: -2px !important;
+}
+
+// a.mat-icon-button {
+//   margin: 0 .3em;
+// }
+
+
+
+
+.mat-fab.mat-primary:not(.mat-button-disabled),
+.mat-icon-button.mat-primary:not(.mat-button-disabled) {
+  border-color: $theme-primary !important;
+}
+
+.mat-fab.mat-accent:not(.mat-button-disabled),
+.mat-icon-button.mat-accent:not(.mat-button-disabled) {
+  border-color: $theme-accent !important;
+}
+
+.mat-fab.mat-warn:not(.mat-button-disabled),
+.mat-icon-button.mat-warn:not(.mat-button-disabled) {
+  border-color: $theme-warn !important;
+}
+
+.mat-fab.mat-disabled,
+.mat-icon-button.mat-disabled {
+  border-color: $theme-disabled !important;
+}
+
+.mat-fab, 
+.mat-icon-button {
+	border: 1px solid !important;
+}
+
+.mat-stroked-button {
+	border-color: inherit !important;
+}
+
+
+
+//  Buttons
+
+a[class*="icon"] {
+    font-size: 1.3em;
+}
+
+.mat-button-base {
+    display        : grid !important;
+    place-content  : center;
+    justify-content: center;
+}
+
+.mat-caption,
+.mat-button-base {
+  text-transform: uppercase;
+}
+
+.mat-button-base.mat-transparent {
+  background-color: transparent !important;
+}
+
+
+.mat-flat-button, .mat-raised-button, .mat-fab, .mat-mini-fab {
+  // color: rgba(0, 0, 0, 0.87);
+  background-color: $theme-bg-light-surface;
+}
+
+
+
+
+
+
+
+
+
+// Snackbar
+.mat-snack-bar-container.mat-accent {
+	background: $theme-accent;
+}
+
+.mat-snack-bar-container.mat-warn {
+	background: $theme-warn;
+}
+
+.mat-snack-bar-container.mat-primary {
+	background: $theme-primary;
+}
+
+
+
+
+
+// Text Colors
+.color-primary {
+    color: $theme-primary;
+}
+.color-accent {
+    color: $theme-accent;
+}
+.color-warn {
+    color: $theme-warn;
+}
+
+.sub-text {
+  color: $theme-text-light-sub;
+}
+
+
+
+
+//  SVG Icon Theme Colors
+img.mat-primary {
+  filter: invert(58%) sepia(89%) saturate(6723%) hue-rotate(213deg) brightness(83%) contrast(84%);
+}
+
+img.mat-accent {
+  filter: invert(34%) sepia(99%) saturate(573%) hue-rotate(69deg) brightness(96%) contrast(91%);
+}
+
+img.mat-warn {
+  filter: invert(68%) sepia(69%) saturate(697%) hue-rotate(351deg) brightness(92%) contrast(93%);
+}
+
+img.mat-light {
+  filter: invert(100%) sepia(0%) saturate(7425%) hue-rotate(125deg) brightness(120%) contrast(116%);
+}
+
+img.mat-dark {
+  filter: invert(24%) sepia(0%) saturate(15%) hue-rotate(228deg) brightness(98%) contrast(89%);
+}
+
+a.mat-button-disabled img {
+  filter: invert(92%) sepia(5%) saturate(155%) hue-rotate(156deg) brightness(92%) contrast(79%) !important;
+}
+
+
+
+
+
+// Seperator Colors
+hr {
+  margin-top: 0.25em !important;
+  margin-bottom: 0em !important;
+
+  background-color: $theme-primary !important;
+  height: 2px !important;
+  opacity: 0.7 !important;
+}
+
+hr.small {
+  width: 75%;
+  left: 25%;
+  border-bottom-style: dashed;
+}
+
+hr.mat-primary {
+  background-color: $theme-primary;
+}
+
+hr.mat-accent {
+  background-color: $theme-accent;
+}
+hr.mat-warn {
+  background-color: $theme-warn;
+}
+
+
+hr.light {
+  opacity: 0.3 !important;
+}
+
+
+// Color Adjustments
+
+
+// Background Adjustments
+.mat-table {
+  background: $theme-bg-light-surface;
+}
+
+.mat-cell:last-of-type, 
+.mat-header-cell:last-of-type, 
+.mat-footer-cell:last-of-type {
+  padding-right: 1rem !important;
+}
+
+.mat-cell:first-of-type, 
+.mat-header-cell:first-of-type, 
+.mat-footer-cell:first-of-type {
+  padding-left: 1rem !important;
+}
+
+// Table Actions Fix
+.mat-cell:last-of-type, 
+.mat-header-cell:last-of-type, 
+.mat-footer-cell:last-of-type {
+  justify-content: end !important;
+  flex-grow: .3 !important;
+}
+
+.mat-header-row {
+  min-height: 2.5rem !important;
+}
+
+.mat-header-cell {
+  color: $theme-primary !important;
+  font-weight: 600;
+}
+
+
+.mat-paginator-container {
+  padding: 0 1rem !important;
+}
+
+.mat-paginator-range-actions {
+  > * {
+    margin: 0 .25rem !important;
+  }
+
+  > *:last-of-type {
+    margin-right: 0 !important;
+  }
+}
+
+
+
+
+
+
+//    Card
+.card {
+  box-shadow: 
+    0px 3px 3px -2px rgb(0 0 0 / 20%), 
+    0px 3px 4px 0px rgb(0 0 0 / 15%), 
+    0px 1px 8px 0px rgb(0 0 0 / 10%);
+  border: 0px solid $theme-bg-light !important;
+  border-radius: 0  !important;
+}
+
+.card.border-primary {
+  border-color: $theme-primary !important;
+}
+
+.card.border-accent {
+  border-color:$theme-accent !important;
+}
+
+.card.border-warn {
+  border-color: $theme-warn !important;
+}
+
+.card.border-disbaled {
+  border-color: $theme-disabled !important;
+}

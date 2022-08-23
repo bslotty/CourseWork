@@ -1,0 +1,42 @@
+<app-section-header title="Assesments"></app-section-header>
+
+<div *ngIf="gradeList.length > 0; else nothing">
+
+    <div *ngFor="let grade of gradeList"
+        class="d-flex flex-column align-items-center">
+        <div class="col-12">
+            <!-- <label class="mat-subheading-1">{{ grade.account.name }}</label> -->
+            <app-account-card [account]="grade.account"></app-account-card>
+        </div>
+
+        <div *ngFor="let course of grade.courses"
+            class="col-12 d-flex flex-row my-3 justify-content-end align-items-center">
+            <div class="col ps-5 d-flex flex-column align-items-start">
+                <label class="mat-title">{{ CourseSection[ course.section ] }}</label>
+                <label class="mat-subheading-1">{{ CourseLevel[ course.level ] }}</label>
+            </div>
+
+            <div class="col-auto"
+                *ngIf="course.actionIcon != undefined">
+                <a mat-fab
+                    [color]="course.actionIcon.buttonColor"
+                    (click)="viewCourse(course)"
+                    class="mat-elevation-z0"
+                    [disabled]="course.phase == 0">
+
+                    <app-icon [name]="course.actionIcon.iconName"
+                        [color]="course.actionIcon.iconColor"></app-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #nothing>
+    <div class="d-flex flex-column justify-content-center alert alert-primary">
+        <app-icon name="thumbs-up"
+            color="primary"></app-icon>
+        <label class="mat-caption alert-text py-3">Nothing to do </label>
+    </div>
+
+</ng-template>

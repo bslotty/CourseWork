@@ -1,0 +1,30 @@
+<nav class="d-flex justify-content-center align-items-center px-0 py-1">
+    <div class="px-0  col-11 col-xl-6 col-md-8  d-flex align-items-center">
+
+        <div class="col">
+            <label class="mat-title">Coursework</label>
+        </div>
+
+        <div class="col-auto">
+            <a mat-mini-fab
+                color="primary"
+                routerLink="cw"
+                class="mat-elevation-z0 mx-2">
+                <app-icon name="menu"
+                    color="light"
+                    size="24"></app-icon>
+            </a>
+        </div>
+
+
+        <div class="col-auto"
+            *ngIf="account != undefined">
+            <a mat-flat-button
+                color="transparent"
+                (click)="changeAccount()"
+                class="mat-elevation-z0">
+                <app-account-card [account]="account"></app-account-card>
+            </a>
+        </div>
+    </div>
+</nav>

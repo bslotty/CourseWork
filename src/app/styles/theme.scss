@@ -1,0 +1,30 @@
+// Fonts
+@import url("https://fonts.googleapis.com/css?family=Poppins");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+$theme-font-header : 'Roboto';
+$theme-font-body   : 'Open Sans';
+$theme-font-utility: 'Poppins';
+
+
+//  Colors
+$theme-primary:     #2960c7;
+$theme-accent:      #248513;
+$theme-warn:        #e4a214;
+
+$theme-disabled: #c4c8ca;
+$theme-bug:      #a445db;
+
+
+//  Backgrounds
+$theme-bg-dark         : #2b2b2b;
+$theme-bg-dark-surface : #505050;
+$theme-bg-light        : #fcf7f3;
+$theme-bg-light-surface: #FFF;
+
+
+// Text
+$theme-text-light    : #fff;
+$theme-text-light-sub: #939799;
+$theme-text-dark     : #444;

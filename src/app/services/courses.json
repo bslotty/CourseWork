@@ -1,0 +1,30 @@
+[
+    {"id":"1","section":"Sales","level":"Introductionary"},
+    {"id":"2","section":"Services","level":"Introductionary"},
+    {"id":"3","section":"Support","level":"Introductionary"},
+    {"id":"4","section":"Marketing","level":"Introductionary"},
+    {"id":"5","section":"Accounting","level":"Introductionary"},
+    {"id":"6","section":"Legal","level":"Introductionary"},
+ 
+
+    {"id":"7","section":"Sales","level":"Foundational"},
+    {"id":"8","section":"Services","level":"Foundational"},
+    {"id":"9","section":"Support","level":"Foundational"},
+    {"id":"10","section":"Marketing","level":"Foundational"},
+    {"id":"11","section":"Accounting","level":"Foundational"},
+    {"id":"12","section":"Legal","level":"Foundational"},
+    
+
+
+    {"id":"13","section":"Sales","level":"Capstone"},
+    {"id":"14","section":"Services","level":"Capstone"},
+    {"id":"15","section":"Support","level":"Capstone"},
+    {"id":"16","section":"Marketing","level":"Capstone"},
+    {"id":"17","section":"Accounting","level":"Capstone"},
+    {"id":"18","section":"Legal","level":"Capstone"},
+    
+
+    {"id":"19","section":"Engineering","level":"Introductionary"},
+    {"id":"20","section":"Engineering","level":"Foundational"},
+    {"id":"21","section":"Engineering","level":"Capstone"}
+]

@@ -1,0 +1,38 @@
+/* You can add global styles to this file, and also import other style files */
+@import "theme";
+
+body {
+    color: $theme-text-dark !important;
+}
+
+nav {
+    background-color: $theme-bg-dark-surface;
+    color: $theme-text-light;
+
+    .account-card {
+        color: $theme-text-light;
+    }
+
+    .account-card {
+        color: $theme-text-light;
+
+        img {
+            filter: invert(100%) sepia(0%) saturate(7425%) hue-rotate(125deg) brightness(120%) contrast(116%);
+        }
+    }
+
+    
+}
+
+
+.question-text-container {
+    min-height: 80px;
+    margin-bottom: 20px;
+}
+
+.account-profile-img{
+    display: block;
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
